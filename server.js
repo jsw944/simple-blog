@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // EJS를 뷰 엔진으로 설정
 app.set('view engine', 'ejs');
