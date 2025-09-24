@@ -1,0 +1,30 @@
+
+<%- include('partials/header') %>
+
+<h1><%= title %></h1>
+<hr>
+
+<% if(inquiries.length > 0) { %>
+    <div class="list-group">
+        <% inquiries.forEach(inquiry => { %>
+            <a href="/inquiries/<%= inquiry.id %>" class="list-group-item list-group-item-action">
+                <div class="d-flex w-100 justify-content-between">
+                    <h5 class="mb-1"><%= inquiry.title %></h5>
+                    <small><%= inquiry.date %></small>
+                </div>
+                <p class="mb-1"><%= inquiry.content.substring(0, 100) %>...</p>
+                <small>작성자: <%= inquiry.author %></small>
+            </a>
+        <% }) %>
+    </div>
+<% } else { %>
+    <div class="alert alert-warning" role="alert">
+        <% if (locals.query) { %>
+            '<%= query %>'에 대한 검색 결과가 없습니다.
+        <% } else { %>
+            표시할 문의 내역이 없습니다.
+        <% } %>
+    </div>
+<% } %>
+
+<%- include('partials/footer') %>

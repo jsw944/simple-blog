@@ -1,0 +1,15 @@
+<%- include('partials/header') %>
+
+<article>
+    <h1 class="mb-3"><%= inquiry.title %></h1>
+    <p class="text-muted">작성자: <%= inquiry.author %> | 작성일: <%= inquiry.date %></p>
+    <hr>
+    <div class="fs-5">
+        <p><%= inquiry.content.replace(/\n/g, '<br>') %></p>
+    </div>
+</article>
+
+<hr>
+<a href="/inquiries" class="btn btn-secondary mt-3">문의 내역으로 돌아가기</a>
+
+<%- include('partials/footer') %>
